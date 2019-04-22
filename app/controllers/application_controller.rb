@@ -6,7 +6,10 @@ class ApplicationController < ActionController::API
     response = {}
     crc_token = params['crc_token']
     if not crc_token.nil?
-      consumer_secret = 'EduPumcCfrXVjC3pBpiPUXHQiuCJiRNtuvBuM2MF5MoDb2phKC'
+      # flimper app
+      # consumer_secret = 'EduPumcCfrXVjC3pBpiPUXHQiuCJiRNtuvBuM2MF5MoDb2phKC'
+      # test app
+      consumer_secret = 'zSEvxZaA30xkhVI15LLU0wTzi8mA5qtoOpxEHoaBhG9WmT9dQ9'
       response['response_token'] = "sha256=#{generate_crc_response(consumer_secret, crc_token)}"
     end
 

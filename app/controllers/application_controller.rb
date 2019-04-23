@@ -1,4 +1,6 @@
-class ApplicationController < ActionController::API
+class ApplicationController < ActionController::Base
+  include ActionController::Helpers
+
   def log_twitter_account_activity_get
     logger.info '####### GET #######'
     logger.info params
@@ -9,7 +11,7 @@ class ApplicationController < ActionController::API
       # flimper app
       # consumer_secret = 'EduPumcCfrXVjC3pBpiPUXHQiuCJiRNtuvBuM2MF5MoDb2phKC'
       # test app
-      consumer_secret = 'zSEvxZaA30xkhVI15LLU0wTzi8mA5qtoOpxEHoaBhG9WmT9dQ9'
+      consumer_secret = 'GR3PiJEUTFxK0wSxwddxf5FrTAjVChJehdB5t6GpQKnBYNd0vM'
       response['response_token'] = "sha256=#{generate_crc_response(consumer_secret, crc_token)}"
     end
 
@@ -26,4 +28,10 @@ class ApplicationController < ActionController::API
     hash = OpenSSL::HMAC.digest('sha256', consumer_secret, crc_token)
     return Base64.encode64(hash).strip!
   end
+
+  private
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+  helper_method :current_user
 end

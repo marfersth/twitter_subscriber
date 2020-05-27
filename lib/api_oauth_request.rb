@@ -22,22 +22,12 @@ class ApiOauthRequest
 		@keys = {}
 
 		if config.nil?
-      #Load keys from ENV.
-			# KEYS FLIMPER_APP
-			# @keys['consumer_key'] = 'SAOdqFOUcnfGGiKs7uC4TVe3S'
-			# @keys['consumer_secret'] = 'EduPumcCfrXVjC3pBpiPUXHQiuCJiRNtuvBuM2MF5MoDb2phKC'
-			# @keys['access_token'] = '2207491537-XBE0X3K5UpcTUFTEL32TCeTI2ZpvJGN2L5R7fUi'
-			# @keys['access_token_secret'] = 'k3w5dgVmjYLQfZvkLjvZQ80pdwON1KLciqcIOgbQ4kOVF'
-
+		        #Load keys from ENV.
 			# KEYS TEST_APP
-			@keys['consumer_key'] = 'eKI4sPLbzBTcPQQchRl0q0pUF'
-			@keys['consumer_secret'] = 'GR3PiJEUTFxK0wSxwddxf5FrTAjVChJehdB5t6GpQKnBYNd0vM'
-			@keys['access_token'] = '2207491537-9sBIxJWcAUKqmDo91EXrLIkXMLSRXcPCtdJGisQ'
-			@keys['access_token_secret'] = '8fzAHo6orSzaX7ORdUWi72qDn3OtXfQhkJ00QJnzyNe9J'
-
-			# keys marfersth
-			# @keys['access_token'] = '3190821940-uZBtMhb0gh55Cp0thEtiWEkshJGzkqzJSccQXNN'
-			# @keys['access_token_secret'] = 'cIWsqDDKPa8wwybouvjgxtbxPlKsCMDjNRBDa9RrOXk51co'
+			@keys['consumer_key'] = 'consumer_key'
+			@keys['consumer_secret'] = 'consumer_secret'
+			@keys['access_token'] = 'access_token'
+			@keys['access_token_secret'] = 'access_token_secret'
 		else
 			#Load from config file.
 			@keys = YAML::load_file(config)
